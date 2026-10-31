@@ -249,4 +249,11 @@
         document.querySelectorAll(".logoImageContainer").forEach(e => {
           e.href = window.appInfo?.appPageUrl || "";
         });
-      }</script></body></html>
+      }</script><script>
+        const autoLaunch = window.setInterval(() => {
+          if (window.appReady && typeof window.playInBrowser === "function") {
+            window.clearInterval(autoLaunch);
+            window.playInBrowser();
+          }
+        }, 250);
+      </script></body></html>
